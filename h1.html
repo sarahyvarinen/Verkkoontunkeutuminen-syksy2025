@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tehtävä h1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2c3e50;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tehtävä h1</h1>
+  </header>
+  <main>
+    <h2>x</h2>
+    <h3>Karvinen 2025: Wireshark - Getting Started:</h3>
+    <p>Tekstissä käytiin läpi kuinka wireshark asennetaan Linuxille. Hyödynsin tätä ohjetta asentaessani sen omalle koneelleni.</p>
+    <p>$ sudo apt-get update</p>
+    <p>$ sudo apt-get install wireshark</p>
+
+    <h4>Network Interfaces</h4>
+    <p>Teksti valaisee "network card" käsitteitä, kuten "wlp4", "enp1s0", "en", "wl" ja "lo".</p>
+    <p>Linux koneissa nimeäminen tapahtuu systemd:n kautta.</p>
+    <p>Omat interfacet voi tarkistaa komennoilla: </p>
+    <p>$ ip a</p>
+    <p>$ ip route</p>
+
+    <h5>a</h5>
+    <p>Linuxin distro 13 "Trixie" toimii moitteetta, ei raportoitavaa.</p>
+
+    <h6>b</h6>
+    <p>Yhteys päällä: </p>
+    <img src="ethernet on.jpg" alt="verkko yhteys päällä." width="400">
+
+    <p>Yhteys on pois päältä: </p>
+    <img src="ethernet disconnected.jpg" alt="ei verkkoyhteyttä." width="400">
+
+    <h7>c</h7>
+    <p>Wireshark asennettu, kaapattu pieni pätkä omaa liikennettä:</p>
+    <img src="kaapattua.jpg" alt="kaapattua omaa liikennettä." width="400">
+    
+    <h8>d</h8>
+    <img src="h0.jpg" alt="Omaa kaapattua liikennettä." width="400">
+    <p>Link layer:ssä on näkyvillä "Destination" ja "Source". Tämä kerros vastaa paketinsiirrosta.</p>
+    <p>Internet layer vastaa reitittämisestä ja osoitteista, sisältäen protokollan, source id:n ja destination id:n.</p>
+    <p>Transmission control layer kertoo source portin ja destionation portin, vastaten yhteyden luotettavuudesta ja sen luomisesta.</p>
+    <p>Viimeisenä Application layer vastaa siitä, että ihmiselle luettavat nimet käännetään koneelle luettaviksi.</p>
+
+    <h9>e</h9>
+    <p>Tässä tehtävässä olisi pitänyt tutkia surfing-secure.pcap:ia, mutta en suoraan sanoen saanut tästä oikein mitään irti.</p>
+    <p>Wireshark on minulle sen verran vieras vielä, että sain kyllä surfing-securen auki mutta en osannut enää tulkita tätä tehtävää sen enempää.</p>
+    <img src="surfing-secure.jpg" alt="surfing-secure liikennettä." width="400">
+    <p>Sen verran osaan kuitenkin sanoa, että liikenne meni sivulle terokarvinen.com</p>
+
+    <h10>Lähteet</h10>
+    <p>Kurssin sivut: https://terokarvinen.com/verkkoon-tunkeutuminen-ja-tiedustelu/ </p>
+    <p>Tero Karvinen, Network Interface on Linux https://terokarvinen.com/network-interface-linux/</p>
+    <p>Tero Karvinen, Wireshark getting started https://terokarvinen.com/wireshark-getting-started/</p>
+    <p>Geeks for geeks TCP/IP Packet Format https://www.geeksforgeeks.org/computer-networks/tcp-ip-packet-format/</p>
+    
+
+    
+
+  </main>
+  
+  
+</body>
+</html>
