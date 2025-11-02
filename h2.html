@@ -56,13 +56,33 @@
     <p>Kuvassa näkyy ensimmäisenä localhostin osoite, 127.0.0.1, sitten millä selainmoottorilla sivuun on otettu yhteys (Gecko) sekä tietokoneen käyttöjärjestelmä, eli Linux.</p>
     <p>Seuraavaksi näkyy että selain on pyytänyt logo-kuvaa ja saanut vastaukseksi 200, eli pyyntö on onnistunut.</p>
     <p>Lopuksi näkyy vielä, että sivuston Favicon pyyntö on saanut vastauksen 400, eli sitä ei ole löytynyt.</p>
+
+    <h5>b.Nmapped</h5>
+    <p>Latasin nmap:n koneeelleni, jonka jälkeen katkaisin koneen verkkoyhteyden.</p>
+    <p>Suoritin tehtävän komennoilla jotka löytyivät kurssin verkkosivuilta: </p>
+    <img src="nmap localhost.jpg" alt="nmap localhost asetuksilla." width="400">
+    <p>Komento palautti tietoja skannatusta portista (80), portin tilasta (open), palveusta itsestään sekä sivun versiosta. </p>
+    <p>Koska portissa oli auki tehtävään avaamani Apache, skannatut tiedot ovat siitä.</p>
+    <p>Skannatuissa tiedoissa näkyy käyttöliittymä, eli Linux, käytetyt kernelit ja TCP/IP fingerprint.</p>
     
+    <h6>c. Skriptit</h6>
+    <p>Yleisimmät skriptit olivat http pyynnöt kohdistuen Apacheen.</p>
+    <p>Näitä http pyyntöjä kohdistui esimerkiksi Apachen Default etusivuun. Seassa näkyy myös "CUPS", joka on Common UNIX Printing System. CUPS:n vastuulla on web-käyttöliittymän tarjoaminen.</p>
+    <img src="skriptit oikea.jpg" alt="päällä olevat skriptit" width="400">
+
+    <h7>d. Jäljet lokissa</h7>
+    <img src="nmap loki.jpg" alt="nmap jäljet lokissa" width="400">
+    <p>KIRJOITA SELITYS</p>
+
+    <h8>e. Wiresharking</h8>
+    <p>Käynnistin Wiresherkin ja valitsin "Loopback: Io".</p>
+    <p>Sain liikennettä kaapattua, mutten löytänyt nmap:ia sieltä mistään vaikka olin sen käynnistänyt.</p>
+    <img src="ei nmap.jpg" alt="ei löydy nmap jälkeä." width="400">
+
 
     <h10>Lähteet</h10>
     <p>Kurssin sivut: https://terokarvinen.com/verkkoon-tunkeutuminen-ja-tiedustelu/ </p>
-    <p>Tero Karvinen, Network Interface on Linux https://terokarvinen.com/network-interface-linux/</p>
-    <p>Tero Karvinen, Wireshark getting started https://terokarvinen.com/wireshark-getting-started/</p>
-    <p>Geeks for geeks TCP/IP Packet Format https://www.geeksforgeeks.org/computer-networks/tcp-ip-packet-format/</p>
+    
     
 
     
