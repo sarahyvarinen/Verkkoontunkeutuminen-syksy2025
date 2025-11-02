@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tehtävä h1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2c3e50;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tehtävä h2</h1>
+  </header>
+  <main>
+    <h2>x</h2>
+    <h3>Karvinen 2025: Wireshark - Getting Started:</h3>
+    <p>Tekstissä käytiin läpi kuinka wireshark asennetaan Linuxille. Hyödynsin tätä ohjetta asentaessani sen omalle koneelleni.</p>
+    <p>$ sudo apt-get update</p>
+    <p>$ sudo apt-get install wireshark</p>
+
+    <h4>a. Apache log</h4>
+    <p>Asensin ensin apachen Debianille kurssin sivuilta löytyvillä komennoilla:</p>
+    <p>sudo apt-get update</p>
+    <p>sudo apt-get install apache2</p>
+    <p>sudo systemctl start apache2</p>
+    <p>Sivu näkyi odotusten mukaisesti: </p>
+    <img src="apache toimii .jpg" alt="Kuva apache sivusta" width="400">
+    <p>Seuraavaksi tarkastelin logi tietoja myös kurssisivuilta löytyvällä komennolla: </p>
+    <p>sudo tail -F /var/log/apache2/access.log</p>
+    <img src="apache log.jpg" alt="Kuva apachen logista" width="400">
+    <p>Kuvassa näkyy ensimmäisenä localhostin osoite, 127.0.0.1, sitten millä selainmoottorilla sivuun on otettu yhteys (Gecko) sekä tietokoneen käyttöjärjestelmä, eli Linux.</p>
+    <p>Seuraavaksi näkyy että selain on pyytänyt logo-kuvaa ja saanut vastaukseksi 200, eli pyyntö on onnistunut.</p>
+    <p>Lopuksi näkyy vielä, että sivuston Favicon pyyntö on saanut vastauksen 400, eli sitä ei ole löytynyt.</p>
+    
+
+    <h10>Lähteet</h10>
+    <p>Kurssin sivut: https://terokarvinen.com/verkkoon-tunkeutuminen-ja-tiedustelu/ </p>
+    <p>Tero Karvinen, Network Interface on Linux https://terokarvinen.com/network-interface-linux/</p>
+    <p>Tero Karvinen, Wireshark getting started https://terokarvinen.com/wireshark-getting-started/</p>
+    <p>Geeks for geeks TCP/IP Packet Format https://www.geeksforgeeks.org/computer-networks/tcp-ip-packet-format/</p>
+    
+
+    
+
+  </main>
+  
+  
+</body>
+</html>
