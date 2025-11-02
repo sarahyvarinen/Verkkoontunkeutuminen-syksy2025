@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tehtävä h1</title>
+  <title>Tehtävä h2</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -38,12 +38,13 @@
   </header>
   <main>
     <h2>x</h2>
-    <h3>Karvinen 2025: Wireshark - Getting Started:</h3>
-    <p>Tekstissä käytiin läpi kuinka wireshark asennetaan Linuxille. Hyödynsin tätä ohjetta asentaessani sen omalle koneelleni.</p>
-    <p>$ sudo apt-get update</p>
-    <p>$ sudo apt-get install wireshark</p>
+    <h3>Tiivistä:</h3>
+    <p>Pyramidi havainnollistaa, että jos keskittyy torjumaan vain helppoja uhkia kuten hasheja, hyökkääjä kiertää ne nopeasti.</p>
+    <p>Timanttimalli taas kuvaa hyökkäyksen neljän peruspilarin välisiä yhteyksiä. Nämä ovat hyökkääjä, työkalu, infrastruktuuri ja kohde.</p>
+    <p>Mallin tarkoitus on osoittaa miten nämä toimijat korreloivat ja kuinka tällä tiedolla hyökkäyksiä voi analysoida.</p>
+    <p>(Diamond model)</p>
 
-    <h4>a. Apache log</h4>
+    <h4>a.Apache log</h4>
     <p>Asensin ensin apachen Debianille kurssin sivuilta löytyvillä komennoilla:</p>
     <p>sudo apt-get update</p>
     <p>sudo apt-get install apache2</p>
@@ -65,23 +66,35 @@
     <p>Koska portissa oli auki tehtävään avaamani Apache, skannatut tiedot ovat siitä.</p>
     <p>Skannatuissa tiedoissa näkyy käyttöliittymä, eli Linux, käytetyt kernelit ja TCP/IP fingerprint.</p>
     
-    <h6>c. Skriptit</h6>
+    <h6>c.Skriptit</h6>
     <p>Yleisimmät skriptit olivat http pyynnöt kohdistuen Apacheen.</p>
     <p>Näitä http pyyntöjä kohdistui esimerkiksi Apachen Default etusivuun. Seassa näkyy myös "CUPS", joka on Common UNIX Printing System. CUPS:n vastuulla on web-käyttöliittymän tarjoaminen.</p>
     <img src="skriptit oikea.jpg" alt="päällä olevat skriptit" width="400">
 
-    <h7>d. Jäljet lokissa</h7>
-    <img src="nmap loki.jpg" alt="nmap jäljet lokissa" width="400">
-    <p>KIRJOITA SELITYS</p>
+    <h7>d.Jäljet lokissa</h7>
+    <img src="nmap jalki.jpg" alt="nmap jäljet lokissa" width="400">
+    <p>Lokissa on merkintä "nmap", eli nmap ohjelma on tehtnyt http pyynnön. Tämä kertoo suoraan, että porttiskannaus on tehty.</p>
+    <p>Toinen huomio on useat get pyynnöt peräkkäin. Valitettavasti tämä oli rajautunut kuvasta pois, mutta palvelimelle oli tehty niin monta get pyyntöä, että se osoittaa ettei kyseessä ollut ihminen.</p>
+    <p>Hyvä tapa löytää nmap jälkiä isosta määrästä dataa voisi olla grep -i 'nmap'. Eli komento etsii kaikki rivit joissa user agent on "nmap".</p>
+    <p>Toinen keino löytää porttiskannauksen jälkiä voisi olla etsiä ip-osoitteita, jotka lähettävät epätavallisen paljon pyyntöjä per minuutti.</p>
+    <p>Sellaisia portteja voisi löytyä komennolla "awk '{print $1}' /var/log/apache2/access.log | sort | uniq -c | sort -nr | head". (Tämän vastauksen muotoiluun kysytty apua Chat gpt:ltä)</p>
+    
 
-    <h8>e. Wiresharking</h8>
+
+    <h8>e.Wiresharking</h8>
     <p>Käynnistin Wiresherkin ja valitsin "Loopback: Io".</p>
-    <p>Sain liikennettä kaapattua, mutten löytänyt nmap:ia sieltä mistään vaikka olin sen käynnistänyt.</p>
+    <p>Sain liikennettä kaapattua, mutten löytänyt nmap:ia sieltä mistään vaikka olin sen käynnistänyt. En osannut enää ratkaista tätä tehtävää ja minulta loppui aika kesken loppujen tehtävien kanssa.</p>
     <img src="ei nmap.jpg" alt="ei löydy nmap jälkeä." width="400">
 
 
     <h10>Lähteet</h10>
     <p>Kurssin sivut: https://terokarvinen.com/verkkoon-tunkeutuminen-ja-tiedustelu/ </p>
+    <p>Managing encryption: https://www.cups.org/doc/encryption.html</p>
+    <p>What is nmap and how to use it- A tutorial for the greatest scanning tool of all time: https://www.freecodecamp.org/news/what-is-nmap-and-how-to-use-it-a-tutorial-for-the-greatest-scanning-tool-of-all-time/</p>
+    <p>Enterprise detection & response: https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html</p>
+    <p>Diamond model: https://www.threatintel.academy/wp-content/uploads/2020/07/diamond-model.pdf</p>
+    <p>Chat gptltä kysytty apua "kuinka nmap skannausta voi havaita loki tiedoissa?"</p>
+    <p></p>
     
     
 
