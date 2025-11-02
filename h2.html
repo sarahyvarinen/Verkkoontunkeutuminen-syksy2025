@@ -44,57 +44,120 @@
     <p>Mallin tarkoitus on osoittaa miten nämä toimijat korreloivat ja kuinka tällä tiedolla hyökkäyksiä voi analysoida.</p>
     <p>(Diamond model)</p>
 
-    <h4>a.Apache log</h4>
-    <p>Asensin ensin apachen Debianille kurssin sivuilta löytyvillä komennoilla:</p>
-    <p>sudo apt-get update</p>
-    <p>sudo apt-get install apache2</p>
-    <p>sudo systemctl start apache2</p>
-    <p>Sivu näkyi odotusten mukaisesti: </p>
-    <img src="apache toimii .jpg" alt="Kuva apache sivusta" width="400">
-    <p>Seuraavaksi tarkastelin logi tietoja myös kurssisivuilta löytyvällä komennolla: </p>
-    <p>sudo tail -F /var/log/apache2/access.log</p>
-    <img src="apache log.jpg" alt="Kuva apachen logista" width="400">
-    <p>Kuvassa näkyy ensimmäisenä localhostin osoite, 127.0.0.1, sitten millä selainmoottorilla sivuun on otettu yhteys (Gecko) sekä tietokoneen käyttöjärjestelmä, eli Linux.</p>
-    <p>Seuraavaksi näkyy että selain on pyytänyt logo-kuvaa ja saanut vastaukseksi 200, eli pyyntö on onnistunut.</p>
-    <p>Lopuksi näkyy vielä, että sivuston Favicon pyyntö on saanut vastauksen 400, eli sitä ei ole löytynyt.</p>
+    <!DOCTYPE html>
 
-    <h5>b.Nmapped</h5>
-    <p>Latasin nmap:n koneeelleni, jonka jälkeen katkaisin koneen verkkoyhteyden.</p>
-    <p>Suoritin tehtävän komennoilla jotka löytyivät kurssin verkkosivuilta: </p>
-    <img src="nmap localhost.jpg" alt="nmap localhost asetuksilla." width="400">
-    <p>Komento palautti tietoja skannatusta portista (80), portin tilasta (open), palveusta itsestään sekä sivun versiosta. </p>
-    <p>Koska portissa oli auki tehtävään avaamani Apache, skannatut tiedot ovat siitä.</p>
-    <p>Skannatuissa tiedoissa näkyy käyttöliittymä, eli Linux, käytetyt kernelit ja TCP/IP fingerprint.</p>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tehtävä h2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2c3e50;
+      color: white;
+      margin-top: 2rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1rem 0;
+    }
+    h2 { font-size: 1.8rem; margin-top: 2rem; }
+    h3 { font-size: 1.5rem; margin-top: 1.5rem; }
+    h4 { font-size: 1.3rem; margin-top: 1.2rem; }
+    h5 { font-size: 1.1rem; margin-top: 1rem; }
+    h6 { font-size: 1rem; margin-top: 0.8rem; }
+    p { margin: 0.8rem 0; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tehtävä h2</h1>
+  </header>
+  <main>
+    <h2>x</h2>
+    <h3>Tiivistä:</h3>
+    <p>Pyramidi havainnollistaa, että jos keskittyy torjumaan vain helppoja uhkia kuten hasheja, hyökkääjä kiertää ne nopeasti.</p>
+    <p>Timanttimalli taas kuvaa hyökkäyksen neljän peruspilarin välisiä yhteyksiä. Nämä ovat hyökkääjä, työkalu, infrastruktuuri ja kohde.</p>
+    <p>Mallin tarkoitus on osoittaa miten nämä toimijat korreloivat ja kuinka tällä tiedolla hyökkäyksiä voi analysoida.</p>
+    <p>(Diamond model)</p>
+
+```
+<h4>a. Apache log</h4>
+<p>Asensin ensin apachen Debianille kurssin sivuilta löytyvillä komennoilla:</p>
+<p>sudo apt-get update</p>
+<p>sudo apt-get install apache2</p>
+<p>sudo systemctl start apache2</p>
+<p>Sivu näkyi odotusten mukaisesti:</p>
+<img src="apache toimii .jpg" alt="Kuva apache sivusta">
+<p>Seuraavaksi tarkastelin lokitietoja kurssisivuilta löytyvällä komennolla:</p>
+<p>sudo tail -F /var/log/apache2/access.log</p>
+<img src="apache log.jpg" alt="Kuva apachen logista">
+<p>Kuvassa näkyy localhostin osoite, 127.0.0.1, selainmoottori (Gecko) ja käyttöjärjestelmä (Linux).</p>
+<p>Selain pyysi logo-kuvaa ja sai vastaukseksi 200, eli pyyntö onnistui. Favicon-pyyntö sai vastauksen 400, eli sitä ei löytynyt.</p>
+
+<h4>b. Nmapped</h4>
+<p>Latasin nmap:n koneelle ja katkaisin verkkoyhteyden.</p>
+<p>Suoritin tehtävän kurssisivuilta löytyvillä komennoilla:</p>
+<img src="nmap localhost.jpg" alt="nmap localhost asetuksilla.">
+<p>Komento palautti tietoja skannatusta portista (80), portin tilasta (open), palvelusta ja sivun versiosta. Portissa oli auki Apache, joten tiedot liittyivät siihen.</p>
+<p>Skannatuissa tiedoissa näkyy käyttöjärjestelmä (Linux), kernelit ja TCP/IP fingerprint.</p>
+
+<h5>c. Skriptit</h5>
+<p>Yleisimmät skriptit olivat HTTP-pyynnöt Apacheen, esim. Default etusivuun. Näkyi myös "CUPS", joka tarjoaa web-käyttöliittymän tulostukseen (portti 631).</p>
+<img src="skriptit oikea.jpg" alt="päällä olevat skriptit">
+
+<h5>d. Jäljet lokissa</h5>
+<img src="nmap jalki.jpg" alt="nmap jäljet lokissa">
+<p>Lokissa on merkintä "nmap", eli nmap on tehnyt HTTP-pyynnön. Tämä kertoo suoraan, että porttiskannaus on tehty.</p>
+<p>Useat GET-pyynnöt peräkkäin osoittavat, ettei kyseessä ollut ihminen.</p>
+<p>Hyvä tapa löytää nmap-jälkiä isosta määrästä dataa: <code>grep -i 'nmap'</code></p>
+<p>Toinen tapa: etsi IP-osoitteita, jotka lähettävät epätavallisen paljon pyyntöjä minuutissa, esim.: <code>awk '{print $1}' /var/log/apache2/access.log | sort | uniq -c | sort -nr | head</code></p>
+
+<h6>e. Wiresharking</h6>
+<p>Käynnistin Wiresharkin ja valitsin "Loopback: Io". Liikennettä kaapattu, mutta nmap:ia ei löytynyt. Aikaa loppui kesken.</p>
+<img src="ei nmap.jpg" alt="ei löydy nmap jälkeä.">
+
+<h6>Lähteet</h6>
+<p>Kurssin sivut: <a href="https://terokarvinen.com/verkkoon-tunkeutuminen-ja-tiedustelu/">Linkki</a></p>
+<p>Managing encryption: <a href="https://www.cups.org/doc/encryption.html">CUPS dokumentaatio</a></p>
+<p>Nmap tutorial: <a href="https://www.freecodecamp.org/news/what-is-nmap-and-how-to-use-it-a-tutorial-for-the-greatest-scanning-tool-of-all-time/">Linkki</a></p>
+<p>Pyramid of Pain: <a href="https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html">Linkki</a></p>
+<p>Diamond model: <a href="https://www.threatintel.academy/wp-content/uploads/2020/07/diamond-model.pdf">Linkki</a></p>
+<p>Chat GPT: apua "kuinka nmap skannausta voi havaita lokitiedoissa?"</p>
+```
+
+  </main>
+  <footer>
     
-    <h6>c.Skriptit</h6>
-    <p>Yleisimmät skriptit olivat http pyynnöt kohdistuen Apacheen.</p>
-    <p>Näitä http pyyntöjä kohdistui esimerkiksi Apachen Default etusivuun. Seassa näkyy myös "CUPS", joka on Common UNIX Printing System. CUPS:n vastuulla on web-käyttöliittymän tarjoaminen.</p>
-    <img src="skriptit oikea.jpg" alt="päällä olevat skriptit" width="400">
+  </footer>
+</body>
+</html>
 
-    <h7>d.Jäljet lokissa</h7>
-    <img src="nmap jalki.jpg" alt="nmap jäljet lokissa" width="400">
-    <p>Lokissa on merkintä "nmap", eli nmap ohjelma on tehtnyt http pyynnön. Tämä kertoo suoraan, että porttiskannaus on tehty.</p>
-    <p>Toinen huomio on useat get pyynnöt peräkkäin. Valitettavasti tämä oli rajautunut kuvasta pois, mutta palvelimelle oli tehty niin monta get pyyntöä, että se osoittaa ettei kyseessä ollut ihminen.</p>
-    <p>Hyvä tapa löytää nmap jälkiä isosta määrästä dataa voisi olla grep -i 'nmap'. Eli komento etsii kaikki rivit joissa user agent on "nmap".</p>
-    <p>Toinen keino löytää porttiskannauksen jälkiä voisi olla etsiä ip-osoitteita, jotka lähettävät epätavallisen paljon pyyntöjä per minuutti.</p>
-    <p>Sellaisia portteja voisi löytyä komennolla "awk '{print $1}' /var/log/apache2/access.log | sort | uniq -c | sort -nr | head". (Tämän vastauksen muotoiluun kysytty apua Chat gpt:ltä)</p>
-    
-
-
-    <h8>e.Wiresharking</h8>
-    <p>Käynnistin Wiresherkin ja valitsin "Loopback: Io".</p>
-    <p>Sain liikennettä kaapattua, mutten löytänyt nmap:ia sieltä mistään vaikka olin sen käynnistänyt. En osannut enää ratkaista tätä tehtävää ja minulta loppui aika kesken loppujen tehtävien kanssa.</p>
-    <img src="ei nmap.jpg" alt="ei löydy nmap jälkeä." width="400">
-
-
-    <h9>Lähteet</h9>
-    <p>Kurssin sivut: https://terokarvinen.com/verkkoon-tunkeutuminen-ja-tiedustelu/ </p>
-    <p>Managing encryption: https://www.cups.org/doc/encryption.html</p>
-    <p>What is nmap and how to use it- A tutorial for the greatest scanning tool of all time: https://www.freecodecamp.org/news/what-is-nmap-and-how-to-use-it-a-tutorial-for-the-greatest-scanning-tool-of-all-time/</p>
-    <p>Enterprise detection & response: https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html</p>
-    <p>Diamond model: https://www.threatintel.academy/wp-content/uploads/2020/07/diamond-model.pdf</p>
-    <p>Chat gptltä kysytty apua "kuinka nmap skannausta voi havaita loki tiedoissa?"</p>
-    <p></p>
     
     
 
