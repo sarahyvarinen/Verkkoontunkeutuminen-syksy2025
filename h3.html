@@ -1,0 +1,117 @@
+
+
+<!DOCTYPE html>
+
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tehtävä h3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2c3e50;
+      color: white;
+      margin-top: 2rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1rem 0;
+    }
+    h2 { font-size: 1.8rem; margin-top: 2rem; }
+    h3 { font-size: 1.5rem; margin-top: 1.5rem; }
+    h4 { font-size: 1.3rem; margin-top: 1.2rem; }
+    h5 { font-size: 1.1rem; margin-top: 1rem; }
+    h6 { font-size: 1rem; margin-top: 0.8rem; }
+    p { margin: 0.8rem 0; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tehtävä h2</h1>
+  </header>
+  <main>
+    <h1>Wi‑Fi‑paikannukseen perustuva massavalvonta</h1>
+
+
+<p>Useimmat langattomat laitteet — myös reitittimet ja IoT‑laitteet — lähettävät jatkuvasti tunnistetietoja kuten BSSID‑ tai MAC‑osoitteita. Nämä tunnisteet itsessään eivät kerro ihmisen nimeä, mutta ne kertovat, missä laite on ja milloin se on paikalla. Jos laitteeseen yhdistyy esimerkiksi älypuhelin, joka jakaa sijaintinsa (esimerkiksi karttasovelluksen kautta), paljastuu samalla myös reitittimen BSSID ja sen paikka. Koska vain osa laitteista sisältää GPS‑vastaanottimen, tämä yhdistelmä toimittaa paikannustietoa laitteista, jotka muuten olisivat “sokeita”.</p>
+
+
+<p>Ongelma laajenee nopeasti käytännössä: et tarvitse itse Apple‑ tai Google‑laitetta — riittää, että joku lähelläsi käyttää sellaista. Postinkantaja, koiranulkoiluttaja tai naapuri voi yhdistyessään reitittimeen toimittaa kolmannen osapuolen järjestelmälle tiedon sekä omasta että kaikkien läheisten reitittimien osoitteista. Joissain toteutuksissa vastaanottava palvelin vastaa niin kutsutulla “paluu postissa” ‑mekanismilla ja lähettää takaisin listan lähistöllä havaituista BSSID‑osoitteista pyytämättä — niin yksityisyyttä voidaan rakentaa laajemmalle ilman suoraa luvanantoa.</p>
+
+
+<h2>Hyökkäystavat ja kuinka ne toimivat</h2>
+
+
+<p><strong>Naive attack (arvaushyökkäys):</strong> hyökkääjä arvaa mahdollisia BSSID‑yhdistelmiä MAC‑osoitteen rakenteen perusteella. MAC‑osoitteissa käytetään usein valmistajakohtaista alkupäätä (OUI, <em>Organizationally Unique Identifier</em>). OUI‑tiedot ovat julkisia, joten hyökkääjä voi rajata arvausavaruuden todennäköisimpiin valmistajakohtaisiin yhdistelmiin ja testata näitä. Yksi onnistunut arvaus voi palauttaa hyökkääjälle lisätietoa — jopa satojen muiden osoitteiden listan — jolloin hyökkäys skaalautuu nopeasti.</p>
+
+
+<p><strong>Karttavalvonta:</strong> jos tunnettujen laiteosoitteiden sijainnit pisteytetään kartalle (esimerkiksi tietyn operaattorin tai satelliittipalvelun laitteet), niiden sijaintikuvioista voidaan päätellä laajempia liikkeitä tai alueita – esimerkiksi joukko‑ tai sotilaallisia liikkeitä etulinjoilla.</p>
+
+
+<p><strong>Seuranta liikkeen perusteella:</strong> reitittimien ja muiden Wi‑Fi‑laitteiden liikkeitä seuraamalla voidaan seurata kohteiden liikkumista ihmisten mukana (esim. kannettavat hotspotit, autoihin asennetut laitteet).</p>
+
+
+<h2>Muut huomionarvoiset seikat</h2>
+
+
+<p>MAC‑osoitteiden alkuosa eli OUI kertoo usein laitevalmistajan, ja julkisista rekistereistä näitä yhdistelmiä voi käyttää hyväksi hyökkäyksissä tai massatiedon keruussa. Joissain maissa ja verkoissa voi olla erilaisia päätepisteitä tai välityspalvelimia (esim. oma https‑pääte), mikä vääristää julkisia visualisointeja — kartta saattaa näyttää harhaanjohtavasti, ettei jossain maassa ole havaintoja, vaikka todellisuudessa niiden keruu on vain keskitetty tai salattu.</p>
+
+
+<h2>Miten yksityisyyttä voi suojata</h2>
+
+
+<p>Monet nykylaitteet tukevat MAC‑osoitteiden satunnaistusta (randomized MAC) ja käyttöjärjestelmäkohtaisia yksityisyysasetuksia — niitä kannattaa käyttää. Satunnaistetut osoitteet vaikeuttavat pitkäaikaista seurantaa.</p>
+
+
+<p>Jotkin laitevalmistajat ja palveluntarjoajat (esim. osa satelliittiverkoista) ovat parantaneet yksityisyyttä satunnaistamalla tai suojaamalla laitteiden tunnisteita — esimerkkinä mainittakoon, että jotkin uudemmat palvelut ovat ryhtyneet satunnaistamaan MAC‑tunnisteita päästä päähän.</p>
+
+
+<p>Verkon ylläpitäjänä voit rajoittaa, mitä tietoja laitteesi paljastaa — esimerkiksi estää tarpeettomia palautuksia tai probe‑vastausten jakamista, päivittää laiteohjelmistot ja käyttää vahvoja oletussalasanoja. Käyttäjänä yksinkertaiset toimet auttavat: sammuta Wi‑Fi, kun et tarvitse sitä, käytä laitteesi yksityisyysasetuksia (esim. “private address” iOS/Android), ja pidä ohjelmistot ajan tasalla.</p>
+
+
+<h2>Loppupäätelmä</h2>
+
+
+<p>Wi‑Fi‑pohjainen paikannus tarjoaa paljon hyödyllisiä toimintoja, mutta samalla muodostaa heikon lenkin yksityisyydelle, koska laitteet ja niiden tunnisteet voidaan yhdistää ihmisliikkeisiin ja ‑toimintoihin. Ongelma on sekä tekninen (BSSID/MAC, OUI, probe‑palautukset) että sosiaalinen (riippuvuudet laitteista ja kolmansista osapuolista). Parannuksia saadaan sekä valmistajilta (satunnaistus, paremmat oletusasetukset) että käyttäjältä (tietoisuus ja yksityisyysasetusten hyödyntäminen).</p>
+  </main>
+  <footer>
+    
+  </footer>
+</body>
+</html>
+
+    
+    
+
+    
+
+  </main>
+  
+  
+</body>
+</html>
