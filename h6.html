@@ -1,0 +1,114 @@
+
+
+<!DOCTYPE html>
+
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tehtävä h3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2c3e50;
+      color: white;
+      margin-top: 2rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1rem 0;
+    }
+    h2 { font-size: 1.8rem; margin-top: 2rem; }
+    h3 { font-size: 1.5rem; margin-top: 1.5rem; }
+    h4 { font-size: 1.3rem; margin-top: 1.2rem; }
+    h5 { font-size: 1.1rem; margin-top: 1rem; }
+    h6 { font-size: 1rem; margin-top: 0.8rem; }
+    p { margin: 0.8rem 0; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tehtävä h6</h1>
+  </header>
+  <main>
+    <h1>Tehtävä h6, Wifi challenge</h1>
+
+
+<p>Aloitin tehtävän lataamalla LISÄÄ KUVA harjoitukseen käytetyn virtuaalikoneen. Aloitin tekemällä lämmittely tehtävän. Tehtävät olivat rehellisesti sanoen haastavia, mutta sivuston walkthrough-osiota apuna käyttäen onnistuin tekemään tehtävistä muutaman. Seuraavat havainnot pistivät silmään ja josta opiskelin itse vielä lisää:</p>
+<img src="wifichallengeeka.jpg" width="400" alt="kuva haasteesta">
+<h2>WLAN ja langattomien verkkojen turvattomuus yleisesti</h2>
+
+<p>Langaton internet on osa nykypäivää, mutta muodostaa samalla ison tietoturvaongelman. Verkon tarkkailu ja sen hakkeroiminen on huomattavasti helpompaa kuin silloin jos reitittimeen täytyy muodostaa fyysinen yhteys kaapelilla. Verkon urkintaan voi johtaa käyttäjän huolimattomuus/huijaaminen tai verkon teknisten ominaisuuksien heikkous.</p>
+
+<h2>Erilaisia tapoja hyökätä verkkoon</h2>
+
+<p>Ensimmäisenä mainittakoon "passiivinen verkkohyökkäys", joka tapahtuu esimerkiksi kuuntelemalla, kaappaamalla tai skannaamalla verkkolaitteita ja verkkopaketteja. Yksi tämmöinen esimerkki on "handshake"-tiedon kerääminen, eli WPA tiedon kerääminen. KERRO.</p>
+
+<p>Näitä hyökkäyksiä voi olla vaikea löytää tai havaita, koska taitavasti tehtynä hyökkääjä ei oikeastaan jätä minkäänlaista jälkeä olemassa olostaan.</p>
+
+<p>Toisena kategoriana voisi mainita "Aktiiviset hyökkäykset", joissa verkon toimintaan pyritään vaikuttamaan hyökkääjän toimesta. Esimerkiksi voisi nostaa "Rogue AP"-hyökkäyksen, jossa hyökkääjä perustaa luvattoman "access pointin" verkkoon huijaamaan käyttäjää. Tämä hyökkäys muistuttaa harjoituksissakin esiintynyttä "Evil Twin" hyökkäystä, jossa hyökkääjä luo identtiseltä vaikuttavan verkon huijaamaan käyttäjää. Kun tämä ottaa ko. verkkoon yhteyttä, valheellinen verkko voi esimerkiksi varastaa käyttäjätietoja.</p>
+
+<p>Kolmantena hyökkäyskategoriana on sosiaaliseen mainpulointiin ja painostukseen perustuvat hyökkäykset, kuten yleisesti jaossa oleva verkon salasana taikka vilpilliset kirjautumissivut.</p>
+
+<h2>Mitä opin harjoituksissa</h2>
+
+<p>Harjoituksessa oli hurjaa huomata, että wlan signaali ei ole varsinaisesti yksityistä tietoa, vaan se näkyy hyvinkin kauas ja melkeinpä kenelle vain. Kiintoisaa on myös se, että laitteet hakeutuvat mielellään aina vahvimmalla signaalilla toimivaan verkkoon, mutta yleensä sen aitoutta ei tarkisteta.</p>
+
+<p>Monet salausmenetelmät ovat myös täysin tai osittain murtuneita, kuten esimerkiksi WEP salaus joka on täysin ns. vapaata riistaa ja deprekoitunut. Harjoitus herätti myös kysymyksiä wpa2 salauksesta, jota monet wifi-verkot käyttävät salausprotokollanaan. Esimerkiksi vuodelta 2017 löytyy Elisan julkaisema tiedote jossa kerrotaan wpa2-salauksesta löytyneestä haavoittuvuudesta. Tämä hyökkäys tapahtuu juurikin valetukiaseman käytön kautta, jolloin verkkoliikenteen salausavaimet voivat päätyä hyökkääjän käsiin joka taas voi johtaa verkkoliikenteen salauksen purkuun.</p>
+
+<h2>Nosto yhdestä tehtävästä</h2>
+
+<p>Mielestäni mielenkiintoisin tehtävä oli ihan alkupäässä esiintynyt MAC osoitteen urkinta, koska se menee hyvin läheltä aiemman tehtävän videon aihetta josta tein raportin. Tehtävässä 02. What is the MAC of the wifi-IT client?, käytetään näitä komentoja:</p>
+
+<p>sudo airodump-ng wlan0mon -w ~/wifi/scan --manufacturer --wps --band abg<br>
+sudo airodump-ng wlan0mon -w ~/wifi/scanc11 --manufacturer --wps -c11</p>
+
+<p>Tässä yritetään ensin skannata sekä 2.4ghz ja 5.0 ghz wlan-kanavia. Tämä näkyy komennossa "abg" päätteenä. Wlan0mon-tarkoittaa wifi-adapteria joka on asetettu kuuntelutilaan. Toisessa komennossa sitten kuunnellaan jo löydettyä kanavaa.</p>
+
+<p>Kiinnostavaa tässä tehtävässä on se, että komennot palauttavat myös access pointin MAC osoitteen, eli bssid:n. Eli on mahdollista nähdä kenen valmistajan wifi-reitittimeen käyttäjä on yhteydessä. Näitä valmistajia on esimerkiksi Cisco ja Huawei.</p>
+
+<h2>Lähde</h2>
+
+<p>Elisa: https://www.elisasantamonica.fi/ajankohtaista/uutiset/621-haavoittuvuudet-wpa2-protokollassa-mahdollistavat-wifi-verkkojen-salauksen-murtamisen</p>
+
+</main>
+  <footer>
+    
+  </footer>
+</body>
+</html>
+
+    
+    
+
+    
+
+  </main>
+  
+  
+</body>
+</html>
